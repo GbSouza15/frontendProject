@@ -7,13 +7,6 @@ export default async function Page({ params }) {
     const userInfo = await responseUserInfo.json()
 
     return (
-        // <div key={productSelect.id} className="bg-black w-[20rem] h-[18rem] mt-[1.5rem] rounded-[.2rem]">
-        //     <img className="w-[100%] h-[11rem] border-2 border-[#E57F1A] rounded-tl-[.2rem] rounded-th-[.2rem]" src={`https://backendssq-production.up.railway.app/files/${productSelect.img.split('/')[1]}`} alt={productSelect.name} />
-        //     <div className="mt-[2rem] text-white pl-[.5rem]">
-        //         <p>{productSelect.name}</p>
-        //         <p>{parseFloat(productSelect.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-        //     </div>
-        // </div>
 
         <section>
             <div className="flex justify-center gap-[10rem] items-center bg-black text-white pt-[5rem] pb-[5rem]">

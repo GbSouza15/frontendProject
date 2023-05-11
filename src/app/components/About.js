@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <section className="bg-black text-white flex flex-col items-center">
+        <section id="about" className="bg-black text-white flex flex-col items-center">
             <h1 className="text-[1.8rem] font-bold mt-[3.7rem]">Our goal</h1>
             <p className="w-[35rem] text-[1.2rem] text-center mt-[2.5rem]">Our goal is to offer our customers a more sustainable and affordable shopping option. We want to encourage a more conscious lifestyle, where the reuse of products is valued and supported. We believe that it is possible to have quality products at affordable prices, without compromising the environment. We are committed to making the purchase of used products an easy and accessible choice for everyone, and we are committed to making a difference in the world around us.</p>
 

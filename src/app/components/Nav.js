@@ -1,8 +1,29 @@
+'use client'
+
+import jwt from 'jsonwebtoken';
+import Link from 'next/link';
+
 export default function Nav() {
+
+    const isTokenExpired = () => {
+        const token = localStorage.getItem('token')
+
+        if (!token) {
+            return true
+        }
+
+        const decoded = jwt.decode(token)
+        const currentTime = Math.floor(Date.now() / 1000)
+        return decoded.exp < currentTime
+      };
+
+      let tokenValid;
+
+      isTokenExpired() ? tokenValid = 'expired' : tokenValid = 'valid'
 
     return (
         <div>
-            <nav className="flex items-center justify-around h-[5rem]">
+            <nav className="flex items-center justify-around h-[5rem] shadow-lg">
                 <div className="logo">
                     <svg className="w-[4rem] h-[4rem] rounded-[100%]" version="1.0" xmlns="http://www.w3.org/2000/svg"
  width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
@@ -169,14 +190,12 @@ m46 -15 c2 -8 -5 -13 -17 -13 -12 0 -21 6 -21 16 0 18 31 15 38 -3z"/>
 
                 <ul className="flex gap-[2rem] font-bold">
                     <li>
-                        HOME
+                        <Link href="/">HOME</Link>
                     </li>
                     <li>
-                        ABOUT
+                        <Link href='#about'>ABOUT</Link>
                     </li>
-                    <li>
-                        LOGIN
-                    </li>
+                    {tokenValid == 'expired' || null ? <Link href='/login'><li>LOGIN</li></Link> : <Link href='/dashboard'><li>DASHBOARD</li></Link>}
                 </ul>
             </nav>
         </div>

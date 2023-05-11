@@ -10,8 +10,8 @@ export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleLogin = async (event) => {
-        event.preventDefault();
+    const handleLogin = async (e) => {
+        e.preventDefault();
         const userData = {
             email: email,
             password: password
@@ -25,6 +25,9 @@ export default function Login() {
         }
 
         try {
+
+            localStorage.removeItem('token');
+
             const response = await fetch('https://backendssq-production.up.railway.app/user/login', {
               method: 'POST',
               headers: {
@@ -33,9 +36,10 @@ export default function Login() {
               body: JSON.stringify(userData)
             });
             if (response.ok) {
-              const user = await response.json();
+              const { token } = await response.json()
           
-              if (user) {
+              if (token) {
+                localStorage.setItem('token', token);
                 router.push('/');
               } else {
                 alert('Senha incorreta. Tente novamente!');
