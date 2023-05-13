@@ -26,8 +26,6 @@ export default function Login() {
 
         try {
 
-            localStorage.removeItem('token');
-
             const response = await fetch('https://backendssq-production.up.railway.app/user/login', {
               method: 'POST',
               headers: {

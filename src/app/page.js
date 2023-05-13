@@ -1,9 +1,9 @@
-import Nav from "./components/Nav"
+//import Nav from "./components/Nav"
 import Hero from "./components/Hero"
 import Search from "./components/Search"
 import RecentsProducts from "./components/RecentsProducts"
 import About from "./components/About"
-import Footer from "./components/Footer"
+//import Footer from "./components/Footer"
 
 import { Suspense } from "react"
 
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div>
       <header>
-          <Nav/>
+          {/* <Nav/> */}
           <Hero/>
       </header>
       <main>
@@ -21,9 +21,9 @@ export default function Home() {
           </Suspense>
           <About/>
       </main>
-      <footer>
+      {/* <footer>
           <Footer/>
-      </footer>
+      </footer> */}
     </div>
   )
 }

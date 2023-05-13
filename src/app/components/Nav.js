@@ -6,14 +6,24 @@ import Link from 'next/link';
 export default function Nav() {
 
     const isTokenExpired = () => {
-        const token = localStorage.getItem('token')
 
+        let token = ''
+
+        const checkTokenExist = () => {
+            const tokenExist = localStorage.getItem('token')
+
+            token = tokenExist
+        }
+
+        checkTokenExist()
+        
         if (!token) {
             return true
         }
 
         const decoded = jwt.decode(token)
         const currentTime = Math.floor(Date.now() / 1000)
+        
         return decoded.exp < currentTime
       };
 
