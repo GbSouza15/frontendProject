@@ -39,6 +39,7 @@ export default function Login() {
               if (token) {
                 localStorage.setItem('token', token);
                 router.push('/');
+                router.refresh()
               } else {
                 alert('Senha incorreta. Tente novamente!');
               }

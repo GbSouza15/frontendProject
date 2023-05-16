@@ -2,8 +2,11 @@
 
 import jwt from 'jsonwebtoken';
 import Link from 'next/link';
+import { useRouter } from "next/navigation"
 
 export default function Nav() {
+
+    const router = useRouter()
 
     const isTokenExpired = () => {
 
