@@ -1,6 +1,5 @@
 //import Nav from "./components/Nav"
 import Hero from "./components/Hero"
-import Search from "./components/Search"
 import RecentsProducts from "./components/RecentsProducts"
 import About from "./components/About"
 //import Footer from "./components/Footer"
@@ -15,7 +14,6 @@ export default function Home() {
           <Hero/>
       </header>
       <main>
-          <Search/>
           <Suspense fallback={<p>Carregando produtos...</p>}>
             <RecentsProducts/>
           </Suspense>
