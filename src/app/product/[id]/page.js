@@ -1,16 +1,18 @@
+import url from "@/app/configUrl/urlConfig"
+
 export default async function Page({ params }) {
 
-    const responseProduct = await fetch(`https://backendssq-production.up.railway.app/product/${params.id}`)
+    const responseProduct = await fetch(`${url}/product/${params.id}`)
     const productSelect = await responseProduct.json()
     
-    const responseUserInfo = await fetch(`https://backendssq-production.up.railway.app/user/${productSelect.authorId}`)
+    const responseUserInfo = await fetch(`${url}/user/${productSelect.authorId}`)
     const userInfo = await responseUserInfo.json()
 
     return (
 
         <section>
             <div className="flex justify-center gap-[10rem] items-center bg-black text-white pt-[5rem] pb-[5rem]">
-                <img className="w-[30rem] h-[20rem]" src={`https://backendssq-production.up.railway.app/files/${productSelect.img.split('/')[1]}`} alt={productSelect.name} />
+                <img className="w-[30rem] h-[20rem]" src={`${url}/files/${productSelect.img.split('/')[1]}`} alt={productSelect.name} />
 
                 <div className="infos flex flex-col gap-[3rem]">
                     <div className="info-product">

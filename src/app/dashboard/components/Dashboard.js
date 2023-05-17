@@ -14,12 +14,16 @@ export default async function Dashboard() {
                 </div>
 
                 <div className="flex flex-col items-center">
-                    <button className="bg-[#E57F1A] p-[2rem] rounded-[.5rem]"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus"><line x1="5" x2="19" y1="12" y2="12"></line></svg></button>
+                    <Link href='/dashboard/removeProduct'>
+                        <button className="bg-[#E57F1A] p-[2rem] rounded-[.5rem]"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minus"><line x1="5" x2="19" y1="12" y2="12"></line></svg></button>
+                    </Link>
                     <p className="mt-[.5rem] font-bold text-[1.5rem]">Remover Produto</p>
                 </div>
 
                 <div className="flex flex-col items-center">
-                    <button className="bg-[#E57F1A] p-[2rem] rounded-[.5rem]"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button>
+                    <Link href='/dashboard/myProducts'>
+                        <button className="bg-[#E57F1A] p-[2rem] rounded-[.5rem]"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button>
+                    </Link>
                     <p className="mt-[.5rem] font-bold text-[1.5rem]">Meus Produtos</p>
                 </div>
             </section>

@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import logo from "../../components/img/logo.svg"
+import url from "@/app/configUrl/urlConfig";
 
 export default function Register() {
 
@@ -36,7 +37,7 @@ export default function Register() {
             return alert('Número inválido!')
         }
 
-        const response = await fetch('https://backendssq-production.up.railway.app/user/register', {
+        const response = await fetch(`${url}/user/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

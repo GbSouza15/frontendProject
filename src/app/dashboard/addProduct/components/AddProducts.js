@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken'
 import Error from '../error'
 import { useState } from 'react'
 import { useRouter } from "next/navigation"
+import url from '@/app/configUrl/urlConfig'
 
 function FormAddProducts() {
 
@@ -40,7 +41,7 @@ function FormAddProducts() {
 
             console.log(productData);
 
-            const response = await fetch('http://localhost:3030/product/create', {
+            const response = await fetch(`${url}/product/create`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -69,11 +70,11 @@ function FormAddProducts() {
             <form onSubmit={handleCreateProduct} className='flex flex-col gap-[1rem] mt-[2rem]'>
                 <label>
                     <p>Nome</p>
-                    <input type='text' value={nameProduct} onChange={(e) => setNameProduct(e.target.value)} className='bg-[#D9D9D9] rounded-[.5rem] w-full px-[1rem]'/>
+                    <input type='text' onChange={(e) => setNameProduct(e.target.value)} className='bg-[#D9D9D9] rounded-[.5rem] w-full px-[1rem]'/>
                 </label>
                 <label>
                     <p>Preço</p>
-                    <input type='text' value={priceProduct} 
+                    <input type='text'
                     onChange={(e) => {
                         const inputValue = e.target.value;
                         const numberValue = inputValue.replace(/[^0-9.,]/g, '');
@@ -83,11 +84,11 @@ function FormAddProducts() {
                 </label>
                 <label>
                     <p>Descrição</p>
-                    <input type='text' value={descriptionProduct} onChange={(e) => setDescriptionProduct(e.target.value)} className='bg-[#D9D9D9] rounded-[.5rem] w-full px-[1rem]'/>
+                    <input type='text'  onChange={(e) => setDescriptionProduct(e.target.value)} className='bg-[#D9D9D9] rounded-[.5rem] w-full px-[1rem]'/>
                 </label>
                 <label>
                     <p>Imagem do produto</p>
-                    <input type='file' onChange={(e) => setSelectedFile(e.target.files.item(0))} className='bg-[#D9D9D9] rounded-[.5rem] p-[2rem] w-[100%]'/>
+                    <input type='file' onChange={(e) => setSelectedFile(e.target.files[0])} className='bg-[#D9D9D9] rounded-[.5rem] p-[2rem] w-[100%]'/>
                 </label>
 
                 <button type='submit' className='bg-[#E57F1A] rounded-[.5rem] p-[1rem]'>CONFIRMAR</button>

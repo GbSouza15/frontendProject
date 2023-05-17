@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import url from "@/app/configUrl/urlConfig"
 
 export default function Login() {
     
@@ -26,7 +27,7 @@ export default function Login() {
 
         try {
 
-            const response = await fetch('https://backendssq-production.up.railway.app/user/login', {
+            const response = await fetch(`${url}/user/login`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'

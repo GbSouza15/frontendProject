@@ -1,8 +1,9 @@
 import Link from "next/link";
+import url from "../configUrl/urlConfig";
 
 export default async function RecentsProducts() {
 
-    const response = await fetch('https://backendssq-production.up.railway.app/product', {
+    const response = await fetch(`${url}/product`, {
         next: {
             revalidate: 30
         }
@@ -18,7 +19,7 @@ export default async function RecentsProducts() {
                     {recentProducts.map(product => (
                         <Link href={`/product/${product.id}`}>
                         <div key={product.id} className="bg-black w-[20rem] h-[18rem] mt-[1.5rem] rounded-[.2rem]">
-                            <img className="w-[100%] h-[11rem] border-2 border-[#E57F1A] rounded-tl-[.2rem] rounded-th-[.2rem]" src={`https://backendssq-production.up.railway.app/files/${product.img.split('/')[1]}`} alt={product.name} />
+                            <img className="w-[100%] h-[11rem] border-2 border-[#E57F1A] rounded-tl-[.2rem] rounded-th-[.2rem]" src={`${url}/files/${product.img.split('/')[1]}`} alt={product.name} />
                             <div className="mt-[2rem] text-white pl-[.5rem]">
                                 <p>{product.name}</p>
                                 <p>{parseFloat(product.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
