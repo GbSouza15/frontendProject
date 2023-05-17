@@ -2,33 +2,28 @@
 
 import jwt from 'jsonwebtoken';
 import Link from 'next/link';
-import { useRouter } from "next/navigation"
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from "next/image";
 import logo from '../components/img/logo.svg'
 
 export default function Nav() {
 
-    const router = useRouter()
-    let tokenValid;
+    const [tokenValid, setTokenValid] = useState('')
 
     useEffect(() => {
-
-
-        const isTokenExpired = () => {
-
+        const isTokenExpire = () => {
             const token = localStorage.getItem('token')
 
             if (!token) {
                 return true
             }
 
-            const decoded = jwt.decode(token)
+            const decode = jwt.decode(token)
             const currentTime = Math.floor(Date.now() / 1000)
-            return decoded.exp < currentTime
+            return decode.exp < currentTime
         }
 
-        isTokenExpired() ? tokenValid = 'expired' : tokenValid = 'valid'
+        isTokenExpire() ? setTokenValid('expired') : setTokenValid('valid')
     })
 
     return (
@@ -45,7 +40,7 @@ export default function Nav() {
                     <li>
                         <Link href='#about'>ABOUT</Link>
                     </li>
-                    {tokenValid == 'expired' || null ? <Link href='/login'><li>LOGIN</li></Link> : <Link href='/dashboard'><li>DASHBOARD</li></Link>}
+                    {tokenValid == 'expired'  ? <Link href='/login'><li>LOGIN</li></Link> : <Link href='/dashboard'><li>DASHBOARD</li></Link>}
                 </ul>
             </nav>
         </div>
